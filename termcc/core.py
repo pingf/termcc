@@ -146,10 +146,8 @@ def ccc(text, **kwargs):
     b = kwargs.get('back')
     ss = kwargs.get('styles')
     p = ''
-    if c:
-        p += fore(c)
-    if b:
-        p += back(b)
+    p += fore(c) if c else ''
+    p += back(b) if b else ''
     if ss:
         for s in ss:
             p += style(s)
@@ -178,30 +176,30 @@ def raback():
 
 def fore(fore):
     if type(fore) == str:
-        return wrap(TERMCC_FORE + str(TERMCC_FORE_TABLE[fore]))
+        return wrap(TERMCC_FORE + str(TERMCC_FORE_TABLE.get(fore,'')))
     if 0 < fore <= 256:
         return wrap(TERMCC_FORE + str(fore))
-    return wrap(TERMCC_FORE + str(TERMCC_FORE_TABLE['white']))
+    return wrap(TERMCC_FORE + str(TERMCC_FORE_TABLE.get('white','')))
 
 
 def rfore(fore):
-    return wrap(TERMCC_RESET_FORE + str(TERMCC_FORE_TABLE[fore]))
+    return wrap(TERMCC_RESET_FORE + str(TERMCC_FORE_TABLE.get(fore,'')))
 
 
 def back(color):
-    return wrap(TERMCC_BACK + str(TERMCC_FORE_TABLE[color]))
+    return wrap(TERMCC_BACK + str(TERMCC_FORE_TABLE.get(color,'')))
 
 
 def rback(color):
-    return wrap(TERMCC_RESET_BACK + str(TERMCC_BACK_TABLE[color]))
+    return wrap(TERMCC_RESET_BACK + str(TERMCC_BACK_TABLE.get(color, '')))
 
 
 def style(style):
-    return wrap(TERMCC_STYLE + str(TERMCC_STYLE_TABLE[style]))
+    return wrap(TERMCC_STYLE + str(TERMCC_STYLE_TABLE.get(style, '')))
 
 
 def rstyle(style):
-    return wrap(TERMCC_RESET_STYLE + str(TERMCC_STYLE_TABLE[style] + 20))
+    return wrap(TERMCC_RESET_STYLE + str(TERMCC_STYLE_TABLE.get(style, '') + 20))
 
 
 def bold():
