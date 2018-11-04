@@ -9,12 +9,12 @@ from setuptools import setup
 
 setup(
     name='termcc',
-    version='2018.01.03',
+    version='2018.11.01',
     url='https://github.com/pingf/termcc.git',
     license='BSD',
-    author='Jesse MENG',
+    author='dameng',
     author_email='pingf0@gmail.com',
-    description='Very short description',
+    description='give you some color to see see(chinese idiom) in terminal',
     long_description=__doc__,
     py_modules=['termcc'],
     # if you would be using a package instead use packages instead
@@ -24,9 +24,8 @@ setup(
     include_package_data=True,
     platforms='any',
     install_requires=[
-        # 'Flask'
     ],
-    scripts=['bin/termcc_show.py'],
+    scripts=['bin/cc.py'],
     entry_points={'console_scripts': [
         'termcc = termcc_show:show',
     ]},

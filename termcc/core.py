@@ -1,5 +1,5 @@
 # coding=utf-8
-# author = Jesse MENG
+# author = dameng
 # email: pingf@gmail.com
 # Some ANSI escape sequences (not a complete list)
 # Code	Name	Effect
