@@ -3,7 +3,7 @@
 
 
 """
-Data literal storing TERMCC names and unicode codes
+unicode 转码表
 """
 from dataclasses import asdict
 

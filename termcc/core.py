@@ -1,6 +1,13 @@
 # coding=utf-8
 # author = dameng
 # email: pingf@gmail.com
+
+
+"""
+核心相关转换函数
+"""
+
+
 # Some ANSI escape sequences (not a complete list)
 # Code	Name	Effect
 #

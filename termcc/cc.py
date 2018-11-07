@@ -2,10 +2,11 @@
 # author: dameng
 #
 
-
+"""
+cc,dd 文字<->彩色文字转换
+"""
 import re
 import sys
-
 from termcc.unicodes_codec import TERMCC_UNICODE, TERMCC_UNICODE_REVERSE_KV
 
 __all__ = ['cc', 'dd', 'get_termcc_regexp']
@@ -18,6 +19,12 @@ _DEFAULT_RIGHT_DELIMITER = ":"
 
 
 def cc(string, delimiters=(_DEFAULT_LEFT_DELIMITER, _DEFAULT_RIGHT_DELIMITER)):
+    """
+    转换带有语义的字符为带有颜色的字符
+
+    :param string:  输入的字符
+    :param delimiters:   控制字符转换
+    """
     pattern = re.compile(u'%s([a-zA-Z0-9\+\-_&.ô’Åéãíç()!#*]+)%s' % delimiters)
     def replace(match):
         mg = match.group(1)
@@ -26,6 +33,12 @@ def cc(string, delimiters=(_DEFAULT_LEFT_DELIMITER, _DEFAULT_RIGHT_DELIMITER)):
 
 
 def dd(string, delimiters=(_DEFAULT_LEFT_DELIMITER, _DEFAULT_RIGHT_DELIMITER)):
+    """
+    将输出的字符串逆向转换成原始字符串
+
+    :param string:  输入的字符
+    :param delimiters:   控制字符转换
+    """
     def replace(match):
         val = TERMCC_UNICODE_REVERSE_KV.get(match.group(0), match.group(0))
         return delimiters[0] + val + delimiters[1]

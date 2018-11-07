@@ -9,7 +9,7 @@ from setuptools import setup
 
 setup(
     name='termcc',
-    version='2018.11.02',
+    version='2018.11.03',
     url='https://github.com/pingf/termcc.git',
     license='BSD',
     author='dameng',
